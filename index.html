@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07152f">
+<meta name="description" content="MA MÉLODIE - Studio El Bajero. Créez votre chanson personnalisée en ligne.">
+
+<title>MA MÉLODIE | Studio El Bajero</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #050d1d;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+/* HEADER */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(5, 13, 29, 0.97);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+    backdrop-filter: blur(10px);
+}
+
+.navbar {
+    max-width: 1100px;
+    margin: auto;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #d4af37, #f4d77d);
+    color: #07152f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.logo-text {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.logo-text span {
+    display: block;
+    color: #d4af37;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.menu {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.menu a:hover {
+    color: #d4af37;
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+}
+
+/* HERO */
+.hero {
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 80px 20px;
+    background:
+        radial-gradient(circle at top, rgba(212,175,55,0.18), transparent 40%),
+        linear-gradient(180deg, #07152f, #050d1d);
+}
+
+.hero-content {
+    max-width: 850px;
+    margin: auto;
+}
+
+.badge {
+    display: inline-block;
+    padding: 8px 18px;
+    border: 1px solid #d4af37;
+    border-radius: 30px;
+    color: #f4d77d;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 9vw, 78px);
+    line-height: 1.05;
+    margin-bottom: 20px;
+}
+
+.gold {
+    color: #d4af37;
+}
+
+.hero p {
+    max-width: 700px;
+    margin: auto;
+    color: #cbd5e1;
+    font-size: 18px;
+}
+
+.hero-buttons {
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 25px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.btn-gold {
+    background: linear-gradient(135deg, #d4af37, #f4d77d);
+    color: #07152f;
+}
+
+.btn-gold:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(212,175,55,0.25);
+}
+
+.btn-outline {
+    border: 1px solid #d4af37;
+    color: #ffffff;
+    background: transparent;
+}
+
+.btn-outline:hover {
+    background: #d4af37;
+    color: #07152f;
+}
+
+/* SECTIONS */
+section {
+    padding: 80px 20px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title h2 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: #94a3b8;
+}
+
+/* SERVICES */
+.services {
+    background: #07152f;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: #0c1d3d;
+    padding: 30px;
+    border: 1px solid rgba(212,175,55,0.2);
+    border-radius: 18px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #d4af37;
+}
+
+.card-icon {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    color: #f4d77d;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #aebbd0;
+}
+
+/* ORDER */
+.order-section {
+    background: #050d1d;
+}
+
+.order-box {
+    max-width: 800px;
+    margin: auto;
+    background: #0b1a36;
+    padding: 30px;
+    border-radius: 22px;
+    border: 1px solid rgba(212,175,55,0.3);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: bold;
+    color: #f4d77d;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #263b60;
+    background: #07152f;
+    color: white;
+    outline: none;
+    font-size: 15px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #d4af37;
+    box-shadow: 0 0 0 2px rgba(212,175,55,0.1);
+}
+
+textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+.price-box {
+    margin: 20px 0;
+    padding: 20px;
+    background: rgba(212,175,55,0.08);
+    border: 1px solid rgba(212,175,55,0.3);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.price-box strong {
+    font-size: 30px;
+    color: #f4d77d;
+}
+
+.order-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.btn-whatsapp {
+    background: #25D366;
+    color: white;
+}
+
+.btn-copy {
+    background: #172b50;
+    color: white;
+    border: 1px solid #30466c;
+}
+
+/* STEPS */
+.steps {
+    background: #07152f;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.step {
+    text-align: center;
+}
+
+.step-number {
+    width: 55px;
+    height: 55px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background: #d4af37;
+    color: #07152f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.step h3 {
+    margin-bottom: 8px;
+}
+
+.step p {
+    color: #94a3b8;
+}
+
+/* CONTACT */
+.contact {
+    text-align: center;
+    background: #050d1d;
+}
+
+.contact-box {
+    max-width: 700px;
+    margin: auto;
+    padding: 35px;
+    border-radius: 20px;
+    background: #0b1a36;
+    border: 1px solid rgba(212,175,55,0.25);
+}
+
+.contact-box p {
+    color: #b7c3d7;
+    margin: 10px 0;
+}
+
+/* FOOTER */
+footer {
+    padding: 35px 20px;
+    text-align: center;
+    background: #030813;
+    border-top: 1px solid rgba(212,175,55,0.15);
+}
+
+footer strong {
+    color: #d4af37;
+}
+
+footer p {
+    color: #78869d;
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+/* MESSAGE */
+.message {
+    display: none;
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 10px;
+    background: rgba(37,211,102,0.12);
+    border: 1px solid #25D366;
+    color: #7ff0a5;
+    text-align: center;
+}
+
+/* MOBILE */
+@media (max-width: 800px) {
+
+    .menu {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        background: #07152f;
+        flex-direction: column;
+        border-bottom: 1px solid #243a5e;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .steps-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
+
+@media (max-width: 500px) {
+
+    section {
+        padding: 60px 15px;
+    }
+
+    .navbar {
+        padding: 12px 15px;
+    }
+
+    .hero {
+        min-height: 600px;
+        padding: 60px 15px;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .order-box {
+        padding: 20px 15px;
+    }
+
+    .order-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title h2 {
+        font-size: 30px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+
+        <a href="#accueil" class="logo" style="text-decoration:none;color:white;">
+            <div class="logo-icon">♪</div>
+            <div class="logo-text">
+                MA MÉLODIE
+                <span>STUDIO EL BAJERO</span>
+            </div>
+        </a>
+
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+        <ul class="menu" id="menu">
+            <li><a href="#accueil" onclick="closeMenu()">Accueil</a></li>
+            <li><a href="#services" onclick="closeMenu()">Services</a></li>
+            <li><a href="#commander" onclick="closeMenu()">Commander</a></li>
+            <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+        </ul>
+
+    </nav>
+</header>
+
+
+<!-- ACCUEIL -->
+<section class="hero" id="accueil">
+    <div class="hero-content">
+
+        <div class="badge">🎵 CRÉATION MUSICALE PERSONNALISÉE</div>
+
+        <h1>
+            Votre histoire devient
+            <span class="gold">une chanson</span>
+        </h1>
+
+        <p>
+            Bienvenue chez <strong>MA MÉLODIE / Studio El Bajero</strong>.
+            Commandez votre chanson personnalisée en ligne et faites vivre
+            vos émotions en musique.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#commander" class="btn btn-gold">
+                🎤 Créer ma chanson
+            </a>
+
+            <a href="#services" class="btn btn-outline">
+                Découvrir nos services
+            </a>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- SERVICES -->
+<section class="services" id="services">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Nos <span class="gold">services</span></h2>
+            <p>Une création musicale pensée spécialement pour vous.</p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="card-icon">🎼</div>
+                <h3>Chanson personnalisée</h3>
+                <p>
+                    Une chanson créée spécialement à partir de votre
+                    histoire, vos paroles et vos émotions.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🎤</div>
+                <h3>Voix & interprétation</h3>
+                <p>
+                    Choisissez le type de voix et l'ambiance qui
+                    correspondent à votre chanson.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🎧</div>
+                <h3>Production musicale</h3>
+                <p>
+                    Des arrangements adaptés à votre style musical :
+                    rumba, afrobeat, gospel, R&B et plus.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ÉTAPES -->
+<section class="steps">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Comment ça <span class="gold">marche ?</span></h2>
+            <p>Créez votre chanson en quelques étapes.</p>
+        </div>
+
+        <div class="steps-grid">
+
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Remplissez</h3>
+                <p>Décrivez la chanson que vous souhaitez.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Choisissez</h3>
+                <p>Sélectionnez le style et la langue.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Envoyez</h3>
+                <p>Envoyez votre commande directement sur WhatsApp.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Recevez</h3>
+                <p>Votre chanson personnalisée est préparée par le studio.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- COMMANDE -->
+<section class="order-section" id="commander">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Commander votre <span class="gold">chanson</span></h2>
+            <p>Remplissez le formulaire ci-dessous.</p>
+        </div>
+
+        <div class="order-box">
+
+            <form id="songForm">
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="client">
+                            Votre nom *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="client"
+                            placeholder="Ex : Michel"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dedicataire">
+                            Chanson pour *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="dedicataire"
+                            placeholder="Ex : Maman Nancy"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="occasion">
+                            Occasion
+                        </label>
+
+                        <select id="occasion">
+                            <option value="Anniversaire">🎂 Anniversaire</option>
+                            <option value="Mariage">💍 Mariage</option>
+                            <option value="Naissance">👶 Naissance</option>
+                            <option value="Déclaration d'amour">❤️ Déclaration d'amour</option>
+                            <option value="Hommage">🕊️ Hommage</option>
+                            <option value="Fête">🎉 Fête</option>
+                            <option value="Remerciement">🙏 Remerciement</option>
+                            <option value="Autre">✨ Autre</option>
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="style">
+                            Style musical
+                        </label>
+
+                        <select id="style">
+
+                            <option value="Rumba congolaise">
+                                🇨🇩 Rumba congolaise
+                            </option>
+
+                            <option value="Rumba urbaine">
+                                🎸 Rumba urbaine
+                            </option>
+
+                            <option value="Afrobeat">
+                                🔥 Afrobeat
+                            </option>
+
+                            <option value="Gospel">
+                                🙏 Gospel
+                            </option>
+
+                            <option value="R&B">
+                                🎙️ R&B
+                            </option>
+
+                            <option value="Amapiano">
+                                🎹 Amapiano
+                            </option>
+
+                            <option value="Pop">
+                                🎵 Pop
+                            </option>
+
+                            <option value="Autre">
+                                ✨ Autre
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="langue">
+                            Langue
+                        </label>
+
+                        <select id="langue">
+
+                            <option value="Français">
+                                🇫🇷 Français
+                            </option>
+
+                            <option value="Français + Lingala">
+                                🇫🇷 Français + Lingala
+                            </option>
+
+                            <option value="Lingala">
+                                🇨🇩 Lingala
+                            </option>
+
+                            <option value="Otetela">
+                                🌍 Otetela
+                            </option>
+
+                            <option value="Anglais">
+                                🇬🇧 Anglais
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="voix">
+                            Type de voix
+                        </label>
+
+                        <select id="voix">
+
+                            <option value="Voix masculine">
+                                👨 Voix masculine
+                            </option>
+
+                            <option value="Voix féminine">
+                                👩 Voix féminine
+                            </option>
+
+                            <option value="Duo">
+                                👨‍🎤👩‍🎤 Duo
+                            </option>
+
+                            <option value="Chœur">
+                                👥 Chœur
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="details">
+                        Décrivez votre chanson *
+                    </label>
+
+                    <textarea
+                        id="details"
+                        placeholder="Ex : Je veux une chanson très émotionnelle pour l'anniversaire de ma maman. Mentionner son amour, ses sacrifices et toute la famille..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="mots">
+                        Noms ou mots importants
+                    </label>
+
+                    <input
+                        type="text"
+                        id="mots"
+                        placeholder="Ex : Nancy, famille, amour, bonheur..."
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="telephone">
+                        Votre numéro WhatsApp
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="telephone"
+                        placeholder="Ex : +243..."
+                    >
+
+                </div>
+
+
+                <div class="price-box">
+
+                    <div>Prix de la chanson personnalisée</div>
+
+                    <strong>8.000 FC</strong>
+
+                    <div style="color:#94a3b8;font-size:13px;">
+                        Audio personnalisé
+                    </div>
+
+                </div>
+
+
+                <div class="order-buttons">
+
+                    <button
+                        type="button"
+                        class="btn btn-whatsapp"
+                        onclick="sendWhatsApp()"
+                    >
+                        📱 Commander sur WhatsApp
+                    </button>
+
+                    <button
+                        type="button"
+                        class="btn btn-copy"
+                        onclick="copyOrder()"
+                    >
+                        📋 Copier la commande
+                    </button>
+
+                </div>
+
+
+                <div class="message" id="message">
+                    ✅ Commande copiée avec succès !
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>MA <span class="gold">MÉLODIE</span></h2>
+            <p>Studio El Bajero</p>
+        </div>
+
+        <div class="contact-box">
+
+            <h3>🎵 Transformons votre histoire en musique</h3>
+
+            <p>
+                Pour toute commande ou information, contactez
+                directement notre studio.
+            </p>
+
+            <p>
+                📱 <strong>WhatsApp Business</strong>
+            </p>
+
+            <p>
+                🎧 Création musicale personnalisée
+            </p>
+
+            <a
+                href="#commander"
+                class="btn btn-gold"
+                style="margin-top:20px;"
+            >
+                Commander maintenant
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <strong>MA MÉLODIE</strong>
+
+    <p>
+        Studio El Bajero © 2026 — Tous droits réservés.
+    </p>
+
+    <p>
+        Création de chansons personnalisées en ligne.
+    </p>
+
+</footer>
+
+
+<script>
+
+/* MENU MOBILE */
+
+function toggleMenu() {
+
+    const menu = document.getElementById("menu");
+
+    menu.classList.toggle("active");
+
+}
+
+function closeMenu() {
+
+    document.getElementById("menu").classList.remove("active");
+
+}
+
+
+/* CRÉATION DU TEXTE DE COMMANDE */
+
+function getOrderText() {
+
+    const client =
+        document.getElementById("client").value.trim();
+
+    const dedicataire =
+        document.getElementById("dedicataire").value.trim();
+
+    const occasion =
+        document.getElementById("occasion").value;
+
+    const style =
+        document.getElementById("style").value;
+
+    const langue =
+        document.getElementById("langue").value;
+
+    const voix =
+        document.getElementById("voix").value;
+
+    const details =
+        document.getElementById("details").value.trim();
+
+    const mots =
+        document.getElementById("mots").value.trim();
+
+    const telephone =
+        document.getElementById("telephone").value.trim();
+
+
+    return `
+🎵 *MA MÉLODIE — STUDIO EL BAJERO*
+
+🎤 *NOUVELLE COMMANDE DE CHANSON*
+
+👤 Client : ${client || "Non renseigné"}
+
+❤️ Chanson pour : ${dedicataire || "Non renseigné"}
+
+🎉 Occasion : ${occasion}
+
+🎼 Style : ${style}
+
+🌍 Langue : ${langue}
+
+🎙️ Voix : ${voix}
+
+📝 Détails de la chanson :
+${details || "Non renseigné"}
+
+✨ Noms / mots importants :
+${mots || "Aucun"}
+
+📱 Numéro WhatsApp :
+${telephone || "Non renseigné"}
+
+💰 Prix : 8.000 FC
+
+Merci à MA MÉLODIE / Studio El Bajero.
+    `.trim();
+
+}
+
+
+/* VALIDATION */
+
+function validateForm() {
+
+    const client =
+        document.getElementById("client").value.trim();
+
+    const dedicataire =
+        document.getElementById("dedicataire").value.trim();
+
+    const details =
+        document.getElementById("details").value.trim();
+
+    if (!client || !dedicataire || !details) {
+
+        alert(
+            "Veuillez remplir votre nom, la personne concernée et la description de la chanson."
+        );
+
+        return false;
+    }
+
+    return true;
+}
+
+
+/* WHATSAPP */
+
+function sendWhatsApp() {
+
+    if (!validateForm()) {
+        return;
+    }
+
+    const order = getOrderText();
+
+    /*
+      Remplace le numéro ci-dessous par ton numéro WhatsApp
+      au format international sans le signe +.
+    */
+
+    const whatsappNumber = "243825520677";
+
+    const url =
+        "https://wa.me/" +
+        whatsappNumber +
+        "?text=" +
+        encodeURIComponent(order);
+
+    window.open(url, "_blank");
+
+}
+
+
+/* COPIER LA COMMANDE */
+
+async function copyOrder() {
+
+    if (!validateForm()) {
+        return;
+    }
+
+    const order = getOrderText();
+
+    try {
+
+        await navigator.clipboard.writeText(order);
+
+        showMessage();
+
+    } catch (error) {
+
+        const textarea =
+            document.createElement("textarea");
+
+        textarea.value = order;
+
+        document.body.appendChild(textarea);
+
+        textarea.select();
+
+        document.execCommand("copy");
+
+        document.body.removeChild(textarea);
+
+        showMessage();
+
+    }
+
+}
+
+
+/* MESSAGE */
+
+function showMessage() {
+
+    const message =
+        document.getElementById("message");
+
+    message.style.display = "block";
+
+    setTimeout(function() {
+
+        message.style.display = "none";
+
+    }, 4000);
+
+}
+
+</script>
+
+</body>
+</html>
