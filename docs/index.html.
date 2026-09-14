@@ -1,1 +1,637 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MA MÉLODIE — Studio El Bajero</title>
 
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(160deg, #020817, #071b3d, #020817);
+      color: white;
+      min-height: 100vh;
+    }
+
+    header {
+      text-align: center;
+      padding: 25px 15px;
+      border-bottom: 1px solid #c9a227;
+    }
+
+    .logo {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      color: #d4af37;
+      font-size: 30px;
+      letter-spacing: 2px;
+    }
+
+    .studio {
+      margin-top: 7px;
+      color: #ddd;
+      font-size: 16px;
+    }
+
+    .intro {
+      text-align: center;
+      padding: 30px 20px 15px;
+    }
+
+    .intro h2 {
+      font-size: 25px;
+      margin-bottom: 10px;
+    }
+
+    .intro span {
+      color: #d4af37;
+    }
+
+    .intro p {
+      color: #cbd5e1;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 94%;
+      max-width: 750px;
+      margin: 20px auto 50px;
+    }
+
+    .card {
+      background: rgba(7, 20, 43, 0.97);
+      border: 1px solid rgba(212,175,55,.45);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: 0 15px 40px rgba(0,0,0,.4);
+    }
+
+    .title {
+      color: #d4af37;
+      font-size: 20px;
+      font-weight: bold;
+      margin: 22px 0 14px;
+      border-bottom: 1px solid rgba(212,175,55,.25);
+      padding-bottom: 8px;
+    }
+
+    .title:first-child {
+      margin-top: 0;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      font-weight: bold;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 16px;
+      border-radius: 12px;
+      border: 1px solid #385071;
+      background: #0c1b35;
+      color: white;
+      font-size: 15px;
+      outline: none;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #d4af37;
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .option {
+      background: #0c1b35;
+      border: 1px solid #385071;
+      border-radius: 12px;
+      padding: 13px;
+      cursor: pointer;
+    }
+
+    .option input {
+      width: auto;
+      margin: 0 7px 0 0;
+    }
+
+    .generate {
+      width: 100%;
+      padding: 17px;
+      margin-top: 8px;
+      border: none;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #d4af37, #f3d77b);
+      color: #071225;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .generate:active {
+      transform: scale(.98);
+    }
+
+    #result {
+      display: none;
+      margin-top: 25px;
+      padding: 20px;
+      background: #020b1c;
+      border: 1px solid #d4af37;
+      border-radius: 18px;
+    }
+
+    #result h2 {
+      color: #d4af37;
+      margin-bottom: 15px;
+    }
+
+    .status {
+      background: #0c1b35;
+      padding: 15px;
+      border-radius: 10px;
+      line-height: 1.6;
+    }
+
+    .audio-box {
+      display: none;
+      margin-top: 15px;
+    }
+
+    audio {
+      width: 100%;
+    }
+
+    .download {
+      display: block;
+      text-align: center;
+      margin-top: 12px;
+      padding: 13px;
+      background: #d4af37;
+      color: #071225;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    .whatsapp {
+      display: block;
+      text-align: center;
+      margin-top: 12px;
+      padding: 14px;
+      background: #25d366;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    .info {
+      margin-top: 20px;
+      padding: 14px;
+      color: #b9c4d8;
+      font-size: 13px;
+      line-height: 1.6;
+      border-left: 3px solid #d4af37;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #9aa7bd;
+      border-top: 1px solid rgba(212,175,55,.25);
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: #d4af37;
+    }
+
+    @media (max-width: 600px) {
+      .grid,
+      .options {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 17px;
+      }
+
+      h1 {
+        font-size: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <img src="logo.png" class="logo" alt="Logo MA MÉLODIE">
+
+  <h1>MA MÉLODIE</h1>
+
+  <div class="studio">
+    Studio El Bajero
+  </div>
+
+</header>
+
+
+<section class="intro">
+
+  <h2>
+    🎵 Crée ta <span>chanson personnalisée</span>
+  </h2>
+
+  <p>
+    Décris ton histoire, choisis ton style et laisse
+    l'intelligence artificielle préparer ta chanson.
+  </p>
+
+</section>
+
+
+<div class="container">
+
+  <div class="card">
+
+    <form id="songForm">
+
+      <div class="title">
+        👤 Informations
+      </div>
+
+      <div class="grid">
+
+        <div>
+          <label>Nom du client</label>
+
+          <input
+            type="text"
+            id="client"
+            placeholder="Ex : Michel"
+            required
+          >
+        </div>
+
+        <div>
+          <label>Chanson destinée à</label>
+
+          <input
+            type="text"
+            id="destinataire"
+            placeholder="Ex : Djoulia"
+            required
+          >
+        </div>
+
+      </div>
+
+
+      <div class="title">
+        🎉 Type de chanson
+      </div>
+
+      <label>Occasion</label>
+
+      <select id="occasion" required>
+
+        <option value="">Choisir une occasion</option>
+
+        <option>Anniversaire</option>
+        <option>Mariage</option>
+        <option>Déclaration d'amour</option>
+        <option>Saint-Valentin</option>
+        <option>Hommage</option>
+        <option>Naissance</option>
+        <option>Remerciement</option>
+        <option>Encouragement</option>
+        <option>Réconciliation</option>
+        <option>Autre</option>
+
+      </select>
+
+
+      <label>Style musical</label>
+
+      <select id="style" required>
+
+        <option value="">Choisir un style</option>
+
+        <option>Rumba congolaise moderne</option>
+        <option>Rumba urbaine</option>
+        <option>Afrobeat</option>
+        <option>Afropop</option>
+        <option>Gospel</option>
+        <option>Slow Love</option>
+        <option>Pop</option>
+        <option>Reggae</option>
+        <option>Hip-Hop</option>
+        <option>Musique traditionnelle</option>
+
+      </select>
+
+
+      <div class="title">
+        🎤 Voix
+      </div>
+
+      <div class="options">
+
+        <label class="option">
+          <input
+            type="radio"
+            name="voice"
+            value="Homme"
+            checked
+          >
+          👨 Voix masculine
+        </label>
+
+        <label class="option">
+          <input
+            type="radio"
+            name="voice"
+            value="Femme"
+          >
+          👩 Voix féminine
+        </label>
+
+      </div>
+
+
+      <div class="title">
+        🌍 Langue
+      </div>
+
+      <select id="language">
+
+        <option>Français</option>
+        <option>Français + Lingala</option>
+        <option>Lingala</option>
+        <option>Tetela</option>
+        <option>Anglais</option>
+
+      </select>
+
+
+      <div class="title">
+        ❤️ Émotion
+      </div>
+
+      <select id="emotion">
+
+        <option>Très émotionnelle</option>
+        <option>Romantique</option>
+        <option>Joy euse et festive</option>
+        <option>Triste</option>
+        <option>Spirituelle</option>
+        <option>Énergique</option>
+        <option>Douce et calme</option>
+
+      </select>
+
+
+      <div class="title">
+        ✍️ Histoire de la chanson
+      </div>
+
+      <label>
+        Raconte ton histoire
+      </label>
+
+      <textarea
+        id="story"
+        placeholder="Écris ici l'histoire que la chanson doit raconter..."
+        required
+      ></textarea>
+
+
+      <label>
+        💌 Message particulier
+      </label>
+
+      <textarea
+        id="message"
+        placeholder="Écris ici un message particulier..."
+      ></textarea>
+
+
+      <button
+        type="submit"
+        class="generate"
+      >
+        🤖 CRÉER MA CHANSON AVEC L'IA
+      </button>
+
+    </form>
+
+
+    <div id="result">
+
+      <h2>
+        🎵 Résultat
+      </h2>
+
+      <div id="status" class="status">
+        Préparation...
+      </div>
+
+      <div class="audio-box" id="audioBox">
+
+        <audio id="audioPlayer" controls></audio>
+
+        <a
+          id="downloadButton"
+          class="download"
+          href="#"
+          download="ma-chanson.mp3"
+        >
+          ⬇️ Télécharger la chanson
+        </a>
+
+      </div>
+
+      <a
+        id="whatsappButton"
+        class="whatsapp"
+        href="#"
+        target="_blank"
+      >
+        📱 Envoyer la commande sur WhatsApp
+      </a>
+
+    </div>
+
+
+    <div class="info">
+
+      <strong>MA MÉLODIE — Studio El Bajero</strong><br><br>
+
+      Cette application est conçue pour recevoir les
+      informations nécessaires à la création d'une chanson
+      personnalisée.
+
+      Le moteur IA musical sera connecté au bouton
+      « Créer ma chanson avec l'IA ».
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<footer>
+
+  <strong>MA MÉLODIE</strong><br>
+  Studio El Bajero<br><br>
+  🎵 Création de chansons personnalisées
+
+</footer>
+
+
+<script>
+
+  const form = document.getElementById("songForm");
+
+  const result = document.getElementById("result");
+
+  const status = document.getElementById("status");
+
+  const whatsappButton =
+    document.getElementById("whatsappButton");
+
+
+  form.addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+
+    const client =
+      document.getElementById("client").value.trim();
+
+    const destinataire =
+      document.getElementById("destinataire").value.trim();
+
+    const occasion =
+      document.getElementById("occasion").value;
+
+    const style =
+      document.getElementById("style").value;
+
+    const voice =
+      document.querySelector(
+        'input[name="voice"]:checked'
+      ).value;
+
+    const language =
+      document.getElementById("language").value;
+
+    const emotion =
+      document.getElementById("emotion").value;
+
+    const story =
+      document.getElementById("story").value.trim();
+
+    const message =
+      document.getElementById("message").value.trim();
+
+
+    result.style.display = "block";
+
+
+    status.innerHTML = `
+      ✅ Demande préparée !<br><br>
+
+      👤 Client : <strong>${client}</strong><br>
+      ❤️ Destinataire : <strong>${destinataire}</strong><br>
+      🎉 Occasion : <strong>${occasion}</strong><br>
+      🎶 Style : <strong>${style}</strong><br>
+      🎤 Voix : <strong>${voice}</strong><br>
+      🌍 Langue : <strong>${language}</strong><br>
+      ❤️ Émotion : <strong>${emotion}</strong>
+    `;
+
+
+    const messageWhatsApp = `
+
+🎵 MA MÉLODIE — STUDIO EL BAJERO
+
+👤 Client : ${client}
+
+❤️ Destinataire : ${destinataire}
+
+🎉 Occasion : ${occasion}
+
+🎶 Style : ${style}
+
+🎤 Voix : ${voice}
+
+🌍 Langue : ${language}
+
+❤️ Émotion : ${emotion}
+
+✍️ Histoire :
+
+${story}
+
+💌 Message particulier :
+
+${message}
+
+🤖 Demande de création d'une chanson personnalisée avec IA.
+
+    `.trim();
+
+
+    whatsappButton.href =
+      "https://wa.me/243825520677?text="
+      + encodeURIComponent(messageWhatsApp);
+
+
+    result.scrollIntoView({
+      behavior: "smooth"
+    });
+
+  });
+
+</script>
+
+</body>
+</html>
